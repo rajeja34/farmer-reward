@@ -8,9 +8,32 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'farmer',
     pathMatch: 'full'
   },
+  {
+    path: 'farmer',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./farmer/farmer.module').then( m => m.FarmerPageModule)
+      },
+      {
+        path: ':farmerId',
+        children: [
+          {
+            path:'',
+            loadChildren: () => import('./farmer/farmer-details/farmer-details.module').then( m => m.FarmerDetailsPageModule)
+          },
+          {
+            path: 'thankYou',
+            loadChildren: () => import('./farmer/thank-you/thank-you-routing.module').then( m => m.ThankYouPageRoutingModule)
+          }
+        ]
+      },
+    ],
+  },
+
 ];
 
 @NgModule({

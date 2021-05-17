@@ -1,0 +1,50 @@
+<ion-toolbar color="light">
+
+  <ion-avatar slot="start">
+    <img src="assets/logo-2.png" [routerLink]="['./farmer']">
+  </ion-avatar>
+
+  <ion-buttons slot="secondary">
+    <ion-button>
+      <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+    </ion-button>
+    <ion-button>
+      <ion-icon slot="icon-only" name="search"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="primary">
+    <ion-button color="danger">
+      <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title>AgriUT Rewards</ion-title>
+</ion-toolbar>
+
+
+<ion-content>
+   <ion-img [src]="encodeImage(farmerDetails.Image64)" style="height: 23em;margin-left: 1.5em;margin-right: 1.5em;"></ion-img>
+
+  <div *ngIf="farmerDetails?.Thanks" style="border-radius: 15px;color: #F8CB66; background-color: #666666;text-align: center;padding: 2em;font-size: 1.1em;margin-top: 3em;justify-content: center;text-align: center;margin-left: 3.5em;margin-right: 3em;">
+      {{farmerDetails?.Thanks}}
+  </div>
+  <div *ngIf="!farmerDetails?.Thanks" style="border-radius: 15px;color: #F8CB66; background-color: #666666;text-align: center;padding: 2em;font-size: 1.1em;margin-top: 3em;justify-content: center;text-align: center;margin-left: 3.5em;margin-right: 3em;">
+      {{farmerDetails?.Name}} is very grateful for your contribution.
+  </div>
+</ion-content>
+
+<ion-footer>
+<ion-toolbar color="warning">
+    <ion-grid>
+        <ion-row>
+           <ion-col size="4">
+
+            </ion-col>
+            <ion-col size="4">
+                <ion-img src='assets/about.png'></ion-img>
+            </ion-col>
+          <ion-col size="4">
+            </ion-col>
+        </ion-row>
+  </ion-grid>
+</ion-toolbar>
+</ion-footer>

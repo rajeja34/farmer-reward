@@ -1,0 +1,78 @@
+<ion-toolbar color="light">
+
+  <ion-avatar slot="start">
+    <img src="assets/logo-2.png">
+  </ion-avatar>
+
+  <ion-buttons slot="secondary">
+    <ion-button>
+      <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+    </ion-button>
+    <ion-button>
+      <ion-icon slot="icon-only" name="search"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="primary">
+    <ion-button color="danger">
+      <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title>AgriUT Rewards</ion-title>
+</ion-toolbar>
+
+<ion-content>
+  <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-img [src]="encodeImage(farmerDetails?.Image64)" style="height: 17em;margin-left: 2em;margin-right: 2em;"></ion-img>
+          <div style="margin-left: 5.5em;margin-right: 5.5em;color: #677F59;font-size: 1em;font-weight: bold;">
+            <ion-text >{{farmerDetails?.Name}}, {{farmerDetails?.Village}}, {{farmerDetails?.Country}}</ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+      <ion-col>
+          <ion-img src='assets/logo-2.png' style="width: 20%;margin-left: 38%;"></ion-img>
+          <div style="justify-content: center;text-align: center;margin-left: 5em;margin-right: 5em;margin-top: 1em;" *ngIf="farmerDetails?.Description">
+            {{farmerDetails?.Description}}
+          </div>
+          <div style="justify-content: center;text-align: center;margin-left: 5em;margin-right: 5em;margin-top: 1em;" *ngIf="!farmerDetails?.Description">
+            For {{farmerDetails?.Name}}, who grew your coffee.
+          </div>
+          <div style="justify-content: center;text-align: center;margin-left: 5em;margin-right: 5em;margin-top: 1em;">
+            Simply click the button below to send your gratitude.
+          </div>
+           <ion-item lines="none" color="white">
+            <ion-img src='assets/send-reward.png' style="width: 75%;height: 75%;margin-left: 5em;margin-right: 5em;margin-top: 1em;" [routerLink]="['thankYou']"></ion-img>
+          </ion-item>
+          <div style="justify-content: center;text-align: center;margin-left: 5em;margin-right: 5em;margin-top: 1em;">
+            Or
+          </div>
+          <div style="margin-left: 25%;">
+            <div style="border-radius: 15px;height: 20%; width: 70%;color: whitesmoke; background-color: #9a9834;text-align: center;padding: 10px;font-size: 1.1em;margin-top: 1em;">
+                Sign up to see how you can reward {{farmerDetails?.Name}} more.
+            </div>
+          </div>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>
+
+<ion-footer>
+<ion-toolbar color="warning">
+    <ion-grid>
+        <ion-row>
+           <ion-col size="4">
+
+            </ion-col>
+            <ion-col size="4">
+                <ion-img src='assets/about.png'></ion-img>
+            </ion-col>
+          <ion-col size="4">
+            </ion-col>
+        </ion-row>
+  </ion-grid>
+</ion-toolbar>
+</ion-footer>
